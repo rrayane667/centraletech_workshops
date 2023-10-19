@@ -8,3 +8,10 @@ math : module qui met à disposition des méthodes liées aux mathématiques
 
 Voir le fichier 'monte_carlo_explication.md' pour les étape de l'exercice
 """
+import random, math
+
+def montecarl(n):
+    l1 = [[random.random(), random.random()] for _ in range(n)]
+    l2 = [ l1[i] for i in range(n) if math.sqrt(l1[i][0]**2 + l1[i][1]**2)<=1]
+    return 4*len(l2)/n
+print(montecarl(10000))
